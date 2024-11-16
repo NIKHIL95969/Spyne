@@ -7,6 +7,8 @@ import car from './routes/carRoute.js';
 import cloudinary from 'cloudinary';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import serverless from 'serverless-http'; // Import serverless-http
+
 // Load environment variables
 dotenv.config({ path: './.env' });
 
@@ -32,11 +34,12 @@ const app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({origin:["http://localhost:3000"],    
+app.use(cors({origin: ["http://localhost:3000"],    
   methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization", "credentials","withCredentials"],
+  allowedHeaders: ["Content-Type", "Authorization", "credentials", "withCredentials"],
   credentials: true
 }));
+
 // Routes
 app.use('/api/v1/user', user);
 app.use('/api/v1/car', car);
@@ -51,5 +54,12 @@ app.get("*", (req, res) => {
 
 app.use(errorMiddleware);
 
-// Start the server
-app.listen(port, () => console.log(`Server is working on Port: ${port} in ${envMode} Mode.`));
+// Export the serverless handler for Vercel
+export const handler = serverless(app);
+
+// Start the server only when running locally
+if (process.env.NODE_ENV === 'DEVELOPMENT') {
+  app.listen(port, () => {
+    console.log(`Server is working on Port: ${port} in ${envMode} Mode.`);
+  });
+}
