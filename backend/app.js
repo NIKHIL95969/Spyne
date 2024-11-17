@@ -8,7 +8,7 @@ import cloudinary from 'cloudinary';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from './swagger.json' assert { type: 'json' };
+import swaggerDocument from './swagger.json';
 // Load environment variables
 dotenv.config({ path: './.env' });
 
