@@ -5,10 +5,10 @@
     "title": "Car Management API",
     "description": "API documentation for user and car management with token-based authentication."
   },
-  "host": "https://spyne-backend-ie0z.onrender.com",
+  "host": "spyne-backend-ie0z.onrender.com",
   "basePath": "/api/v1",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/user/register": {
