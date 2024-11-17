@@ -35,7 +35,7 @@ const LoginSignUp = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/api/v1/user/login", {
+      const response = await fetch("https://spyne-backend-ie0z.onrender.com/api/v1/user/login", {
         method: "POST",
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
         headers: {
@@ -72,7 +72,7 @@ const LoginSignUp = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:4000/api/v1/user/register", {
+      const response = await fetch("https://spyne-backend-ie0z.onrender.com/api/v1/user/register", {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {

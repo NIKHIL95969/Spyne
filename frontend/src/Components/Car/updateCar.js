@@ -35,7 +35,7 @@ const UpdateCar = () => {
     const fetchCarDetails = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/car/details/${id}`);
+        const response = await axios.get(`https://spyne-backend-ie0z.onrender.com/api/v1/car/details/${id}`);
         const { title, description, tags, images } = response.data.car;
 
         setTitle(title);
@@ -75,7 +75,7 @@ const UpdateCar = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/v1/car/update/${id}`,
+        `https://spyne-backend-ie0z.onrender.com/api/v1/car/update/${id}`,
         updateData,
         {
           headers: {

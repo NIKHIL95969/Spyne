@@ -21,7 +21,7 @@ const Products = () => {
       try {
         setLoading(true);
         
-        let url = "http://localhost:4000/api/v1/car/all"; // Base URL
+        let url = "https://spyne-backend-ie0z.onrender.com/api/v1/car/all"; // Base URL
 
         if (keyword) {
           url += `?search=${keyword}`;

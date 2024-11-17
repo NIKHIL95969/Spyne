@@ -57,7 +57,7 @@ const NewCar = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/car/create",
+        "https://spyne-backend-ie0z.onrender.com/api/v1/car/create",
         postData,
         {
           headers: {

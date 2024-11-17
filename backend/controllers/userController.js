@@ -5,7 +5,8 @@ import { TryCatch } from "../middlewares/error.js";
 
 // Register User
 export const registerUser = TryCatch(async (req, res, next) => {
-
+    
+    console.log(req.body);
 
     const { name, email, password } = req.body;
 
@@ -19,7 +20,7 @@ export const registerUser = TryCatch(async (req, res, next) => {
 // Login User
 export const loginUser = TryCatch(async (req, res, next) => {
     const { email, password } = req.body;
-
+       
     if (!email || !password) {
         return next(new ErrorHandler("Please enter email and password", 400));
     }
